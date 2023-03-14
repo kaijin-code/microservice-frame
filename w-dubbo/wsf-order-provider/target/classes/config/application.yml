@@ -1,0 +1,23 @@
+dubbo:
+  registry:
+     address: nacos://localhost:8848
+
+  protocol:
+      name: dubbo
+      port: 15512
+
+  application:
+        name: prodiver
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+
+server:
+  port: 8082

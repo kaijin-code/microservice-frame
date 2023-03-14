@@ -1,0 +1,13 @@
+dubbo:
+  registry:
+     address: nacos://localhost:8848
+
+  protocol:
+      name: dubbo
+      port: 14410
+
+  application:
+        name: consumer
+
+server:
+  port: 8088

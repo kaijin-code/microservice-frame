@@ -1,0 +1,40 @@
+dubbo:
+  registry:
+     address: nacos://localhost:8848
+
+  protocol:
+      name: dubbo
+      port: 15511
+
+  application:
+        name: prodiver
+        qos-port: 44444
+
+spring:
+  application:
+    name: seata-client-demo
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/seata?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+
+server:
+  port: 8090
+
+seata:
+  tx-service-group: seata-client-demo  #这里每个服务都是对应不同的映射名,在配置中心可以看到
+  registry:
+    type: nacos
+    nacos:
+      server-addr: localhost:8848
+      group: SEATA_GROUP
+  service:
+    vgroup-mapping:
+      #这里也要注意 key为映射名,
+      seata-client-demo: default
+
+

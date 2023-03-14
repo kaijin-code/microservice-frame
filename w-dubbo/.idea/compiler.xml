@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wsf-provider" />
+        <module name="wsf-consumer" />
+        <module name="wsf-order-provider" />
+        <module name="wsf-storage-prodiver" />
+        <module name="wfs-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wsf-dubbo-api" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
