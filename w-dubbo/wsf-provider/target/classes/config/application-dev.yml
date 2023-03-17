@@ -36,5 +36,6 @@ seata:
     vgroup-mapping:
       #这里也要注意 key为映射名,
       seata-client-demo: default
+  data-source-proxy-mode: AT
 
 

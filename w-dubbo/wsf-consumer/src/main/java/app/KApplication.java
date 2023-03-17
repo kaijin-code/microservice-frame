@@ -20,6 +20,6 @@ public class KApplication implements CommandLineRunner {
 
     @Override
     public void run(String... strings) {
-        businessService.purchase("1006", "1006", 39);
+        businessService.purchase("1013", "1013", 39);
     }
 }
