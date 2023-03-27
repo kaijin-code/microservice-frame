@@ -1,25 +1,29 @@
 # microservice_base
 
 #### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+SpringBoot 基于Spring+SpringMvc自动配置框架
+Mybatis ORM框架
+Dubbo RPC框架
+Nacos 配置和注册中心
+Seata 分布式事务框架
 
 #### 软件架构
-软件架构说明
-
+使用Nacos作为微服务注册和配置中心，Dubbo服务之间相互调用，对订单和库存服务实现分布式事务控制。
+wfs-api 接口层
+wsf-storage-prodiver 库存服务提供者
+wsf-order-provider   订单服务提供者
+wsf-provider         聚合服务提供者
+wsf-consumer		 消费者
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+安装Nacos-server，配置seata的config配置文件
+安装Seata-server
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+启动Nacos-server
+启动Seata-server
 
 #### 参与贡献
 
