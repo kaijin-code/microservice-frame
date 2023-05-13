@@ -21,6 +21,7 @@
         <module>wsf-consumer</module>
         <module>wsf-order-provider</module>
         <module>wsf-storage-prodiver</module>
+        <module>service.base-service</module>
     </modules>
 
     <properties>

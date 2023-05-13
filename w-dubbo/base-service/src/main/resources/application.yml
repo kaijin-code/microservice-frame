@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    dynamic:
+      # 设置默认的数据源或者数据源组,默认值即为master
+      primary: master
+      # 严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      strict: true
+      datasource:
+        master_1:
+          url: jdbc:mysql://localhost:3306/dynamic_master1?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
+          username: root
+          password: root
+          # 3.2.0开始支持SPI可省略此配置，其他库配置我进行了省略依旧可以使用
+          driver-class-name: com.mysql.jdbc.Driver
+
+  shardingsphere:
+    datasource:
+      names: sharding-order-system
+      sharding-order-system:
+        type: com.zaxxer.hikari.HikariDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        jdbcUrl: jdbc:mysql://localhost:3306/dynamic_master2?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8&rewriteBatchedStatements=true
+        username: root
+        password: root
+    props:
+      sql.show: true
+    sharding:
+      tables:
+        # 订单表 分表：20
+        city_copy:
+          # 真实表 order_0
+          actualDataNodes: sharding-order-system.city_copy_$->{0..2}
+          # 分库策略
+          databaseStrategy:
+            none:
+          # 分表策略
+          tableStrategy:
+            inline:
+              shardingColumn: id
+              # 分片算法行表达式，需符合groovy语法 '& Integer.MAX_VALUE' 位运算使hash值为正数
+              algorithmExpression: city_copy_$->{(id) % 3}
